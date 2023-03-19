@@ -7,10 +7,14 @@ export const Status = ({ status, title }) => {
       {title && <h2 className={StatusCSS.title}>{title}</h2>}
 
       <ul className={StatusCSS.statlist}>
-        {status.map(stat => (
-          <li key={stat.id} className={StatusCSS.item} style={{backgroundColor:randomColor()}}>
-            <span className={StatusCSS.label}>{stat.label}</span>
-            <span className={StatusCSS.percentage}>{stat.percentage}%</span>
+        {status.map(({ id, label, percentage }) => (
+          <li
+            key={id}
+            className={StatusCSS.item}
+            style={{ backgroundColor: randomColor() }}
+          >
+            <span className={StatusCSS.label}>{label}</span>
+            <span className={StatusCSS.percentage}>{percentage}%</span>
           </li>
         ))}
       </ul>
@@ -19,6 +23,17 @@ export const Status = ({ status, title }) => {
 };
 
 function randomColor() {
-  var color = '#'+Math.floor(Math.random()*16777215).toString(16);
+  var color = '#' + Math.floor(Math.random() * 16777215).toString(16);
   return color;
 }
+
+Status.propTypes = {
+  status: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  title: PropTypes.string,
+};
