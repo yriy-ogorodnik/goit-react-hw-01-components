@@ -1,32 +1,9 @@
-import PropTypes from 'prop-types';
-import {
-  Item,
-  SpanStatus,
-} from 'components/Task-03-List-friends/FriendList.styled';
+import { FriendListItem } from 'components/Task-03-List-friends/FriendListItem';
 
 export const FriendList = ({ friends }) => {
   return (
     <ul className="friend-list">
-      {friends.map(friend => (
-        <Item key={friend.id} className="item">
-          <SpanStatus isOnline={friend.isOnline}></SpanStatus>
-
-          <img
-            className="avatar"
-            src={friend.avatar}
-            alt="User avatar"
-            width="48"
-          />
-          <p className="name">{friend.name}</p>
-        </Item>
-      ))}
+      {friends.map(friend => FriendListItem(friend))}
     </ul>
   );
-};
-
-FriendList.prototype = {
-  isOnline: PropTypes.bool,
-  avatar: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
 };

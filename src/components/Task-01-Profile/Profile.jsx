@@ -30,7 +30,7 @@ export const Profile = ({ username, tag, location, avatar, stats }) => (
 //   prop-types надає ряд валідаторів для перевірки коректності
 //  отриманих типів даних
 Profile.propTypes = {
-  avatar: PropTypes.string,
+  avatar: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,

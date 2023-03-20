@@ -22,16 +22,14 @@ export const App = () => {
       <FriendList friends={friends} />
       <TransactionHistory items={transactions} />
     </div>
-  
   );
 };
 
 // стилі---------------------------
 const wrapperStyle = {
-  
   display: 'flex',
-  width:"1200px",
-  margin:"0 auto",
+  width: '1200px',
+  margin: '0 auto',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
